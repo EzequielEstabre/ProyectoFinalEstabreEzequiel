@@ -1,14 +1,17 @@
+import './CartWidget.css'
 import cart from './assets/shopping-cart_icon-icons.com_72552.svg'
-import "./CartWidget.css"
-import "bootstrap/dist/css/bootstrap.min.css"
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
+const CartWidget = () => {
+    const {totalQuantity} = useContext(CartContext)
 
-const CartWidget = () =>{
-    return(
-        <div>
-            <img className='cart' src={cart} alt='cart-widget'/>
-            0
-        </div>
+    return (
+        <Link to='/cart' className='CartWidget' style={{display: totalQuantity > 0 ? 'block' : 'none'}}>
+        <img className='CartImg' src={cart} alt='cart-widget'/>
+        {totalQuantity}
+        </Link>
     )
 }
 

@@ -36,14 +36,15 @@ export const getProducts = () => {
     export const getProductById = (productId) => {
         return new Promise ((resolve) => {
             setTimeout(() => {
-                resolve(products.find(prod => prod.id ===productId))
+                resolve(products.filter(prod => prod.id ===productId))
             }, 500)
         })
     }
         export const getProductByCategory = (category) => {
             return new Promise ((resolve) => {
                 setTimeout(() => {
-                    resolve(products.find(prod => prod.category === category))
+                    resolve(products.filter(prod => prod.category === category))
                 }, 500)
             })
 }
+
