@@ -1,43 +1,41 @@
-import './ItemDetailContainer.css'
-import { useState, useEffect } from 'react'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import {useParams} from 'react-router-dom'
-import { getDocs, doc } from 'firebase/firestore'
-import { db } from '../services/firebaseConfig'
+import { useEffect, useState } from "react"
+import { getProductById } from "../../asynMock";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams} from "react-router-dom";
 
-const ItemDetailContainer = () => {
-    const [product, setProduct] = useState(null)
-    const [ loading, setLoading] = useState(true)
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../Firebase/database";
 
+const ItemDetailcontainer = () =>{
+    const[product, setProduct] = useState(null)
     const {itemId} = useParams()
 
-
-    useEffect(() => {
-        setLoading(true)
+    useEffect(() =>{
+        const getProducto =async () => {
+            const queryRef = doc(db,"products",itemId);
+            const response = await
+        getDoc(queryRef);
+            const newItem = {
+                id:response.id, ...response.data(),
+            };
         
-        const docRef = doc (db,'products', itemId)
+            setTimeout(() => {
+                setProduct(newItem);
+            }, 500)
+        };
+        getProducto();
 
-        getDocs(docRef)
-            .then(response => {
-                const data = response.data()
-                const productsAdapted = { id: responde.id, ...data }
-                setProduct(productsAdapted)
-            })
-            .catch(error => {
-                console.log(error)
-            }),
-            .finally(() => {
-                setLoading(false)
-            }),
-            
-            
-    }, [itemId])
-
+        },[itemId]
+        
+    )    
+        
     return(
-        <div className='ItemDetailContainer'>
+        <div className="ItemDetailContainer">
             <ItemDetail {...product}/>
         </div>
     )
-}
+    
 
-export default ItemDetailContainer;
+};
+
+export default ItemDetailcontainer;

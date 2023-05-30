@@ -1,0 +1,45 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.nav{
+    background-color: antiquewhite;
+}
+
+.categorias{
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: 70px;
+    background: #fff;
+    box-shadow: 2px 3px 3px rgb (196, 196, 196);
+    background-color: antiquewhite;
+}
+
+
+.boton-1{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(23, 40, 40);
+}
+
+.boton-2{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:blue;
+}
+
+.boton-3{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:blueviolet;
+}

@@ -1,4 +1,5 @@
-.cart{
-    width: 20px;
-    height: 20px;
+.carrito{
+    display: flex;
+    align-items:flex-end;
+    background-color: antiquewhite;
 }
