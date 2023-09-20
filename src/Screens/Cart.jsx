@@ -12,8 +12,6 @@ const Cart = () => {
         triggerPostCart({items: CartData, total, user, updatedAt})
     }
 
-    console.log(result);
-
     return (
     <View style={styles.container}>
         <FlatList
@@ -32,7 +30,7 @@ const Cart = () => {
                 onPress = {onConfirm}
             >
                 <Text>
-                    Confirm
+                    Confirmar
                 </Text>
             </Pressable>
             <Text>Total: ${total}</Text>

@@ -11,8 +11,6 @@ const MyProfile = ({navigation}) => {
 
     const {data: image} = useGetProfileImageQuery(localId)
 
-    console.log(image);
-
     const cameraImage = image?.image
 
     const launchCamera = async () => {
@@ -22,8 +20,6 @@ const MyProfile = ({navigation}) => {
     const launchLocation = async () => {
         navigation.navigate('List Address')
     }
-
-    console.log(profileImage);
 
     return (
         <View style={styles.container}>
@@ -40,8 +36,8 @@ const MyProfile = ({navigation}) => {
                     resizeMode="cover"
                 />
             )}
-            <AddButton onPress={launchCamera} title="Add profile picture" />
-            <AddButton onPress={launchLocation} title="My address" />
+            <AddButton onPress={launchCamera} title="Añadir foto de Perfil" />
+            <AddButton onPress={launchLocation} title="Mi Ubicacion" />
         </View>
     );
 };

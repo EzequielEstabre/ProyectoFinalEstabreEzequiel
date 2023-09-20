@@ -43,14 +43,12 @@ const LoginScreen = ({ navigation }) => {
             try {
                 if(resultSignIn.isSuccess) {
 
-                    console.log('inserting Session');
                     const response = await insertSession({
                         idToken: resultSignIn.data.idToken,
                         localId: resultSignIn.data.localId,
                         email: resultSignIn.data.email,
                     })
-                    console.log('Session inserted: ');
-                    console.log(response);
+                    ;
 
                     dispatch(setUser({
                         email: resultSignIn.data.email,
@@ -63,8 +61,7 @@ const LoginScreen = ({ navigation }) => {
                         }
                     }))
                 }
-            } catch (error) {
-                console.log(error.message);
+            } catch (error) {;
             }
         })()
     }, [resultSignIn])
@@ -72,7 +69,7 @@ const LoginScreen = ({ navigation }) => {
     return (
         <View style={styles.main}>
             <View style={styles.container}>
-                <Text style={styles.title}>Login to start</Text>
+                <Text style={styles.title}>Inicio de Sesion</Text>
                 <InputForm
                     label={"email"}
                     onChange={(email) => setEmail(email)}
@@ -84,10 +81,10 @@ const LoginScreen = ({ navigation }) => {
                     error={errorPassword}
                     isSecure={true}
                 />
-                <SubmitButton onPress={onSubmit} title="Send" />
-                <Text style={styles.sub}>Not have an account?</Text>
+                <SubmitButton onPress={onSubmit} title="Iniciar Sesion" />
+                <Text style={styles.sub}>Aun no estas Registrado?</Text>
                 <Pressable onPress={() => navigation.navigate("Signup")}>
-                    <Text style={styles.subLink}>Sign up</Text>
+                    <Text style={styles.subLink}>Registrate</Text>
                 </Pressable>
             </View>
         </View>

@@ -6,7 +6,6 @@ import { colors } from "../Global/Colors";
 
 const AddressItem = ({ location, navigation }) => {
 
-    console.log(location);
 
     const onChangeLocation = () => {
         navigation.navigate('Location Selector')

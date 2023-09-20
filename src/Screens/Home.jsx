@@ -18,10 +18,9 @@ return (
             keyExtractor={category => category}
             renderItem={({item}) => <CategoryItem item={item} navigation = {navigation}/>}
             showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
+            showsHorizontalScrollIndicator={true}
             contentContainerStyle={styles.wrapper}
             horizontal={false}
-            style={styles.flatlist}
         />
     </View>
 )
@@ -34,11 +33,7 @@ const styles = StyleSheet.create({
     gap: 20,
     },
     container: {
-        backgroundColor: colors.cyanBeltive,
+        backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: "center"
     },
-    flatlist: {
-    width: '80%'
-    }
 })

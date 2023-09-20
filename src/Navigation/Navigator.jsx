@@ -19,7 +19,6 @@ const Navigator = () => {
     
     const dispatch = useDispatch()
 
-    //Get stored sessions
     useEffect(()=> {
         (async ()=> {
             try {

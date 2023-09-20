@@ -36,8 +36,6 @@ const ImageSelector = ({ navigation }) => {
                 quality: 1,
             });
 
-            console.log(result.assets);
-
             if (!result.canceled) {
                 setImage(result.assets[0].uri);
             }
@@ -48,9 +46,7 @@ const ImageSelector = ({ navigation }) => {
         try {
             const { status } = await MediaLibrary.requestPermissionsAsync();
             if (status === "granted") {
-                console.log("Only valid on emulators and physical devices");
                 const response = await MediaLibrary.createAssetAsync(image);
-                console.log(response.uri);
                 triggerSaveImage({
                     image: response.uri,
                     localId: localId,
@@ -58,7 +54,6 @@ const ImageSelector = ({ navigation }) => {
                 dispatch(saveImage(response.uri));
             }
         } catch (error) {
-            console.log(error);
         }
         navigation.goBack();
     };
@@ -67,13 +62,13 @@ const ImageSelector = ({ navigation }) => {
         <View style={styles.container}>
             {image ? (
                 <>
-                    <Image source={{ uri: image }} style={styles.image} />
+                    <Image source={{ uri: image }} style={styles.imagen} />
                     <AddButton title="Take another photo" onPress={pickImage} />
                     <AddButton title="Confirm photo" onPress={confirmImage} />
                 </>
             ) : (
                 <>
-                    <View style={styles.noPhotoContainer}>
+                    <View style={styles.sinFotoContainer}>
                         <Text>No photo to show...</Text>
                     </View>
                     <AddButton title="Take a photo" onPress={pickImage} />
@@ -93,11 +88,11 @@ const styles = StyleSheet.create({
         gap: 20,
         marginTop: 20,
     },
-    image: {
+    imagen: {
         width: 200,
         height: 200,
     },
-    noPhotoContainer: {
+    sinFotoContainer: {
         width: 200,
         height: 200,
         borderWidth: 2,

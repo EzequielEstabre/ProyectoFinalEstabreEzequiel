@@ -3,7 +3,7 @@ import React from "react";
 import { colors } from "../Global/Colors";
 
 
-const AddButton = ({
+const AddButon = ({
     title = "",
     onPress = () => {},
     color = colors.cyanBeltive,
@@ -18,7 +18,7 @@ const AddButton = ({
     );
 };
 
-export default AddButton;
+export default AddButon;
 
 const styles = StyleSheet.create({
     button: {

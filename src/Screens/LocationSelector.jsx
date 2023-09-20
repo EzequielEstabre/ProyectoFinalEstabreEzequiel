@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import * as Location from "expo-location";
-import AddButton from "../Components/AddButon";
+import AddButon from "../Components/AddButon";
 import { usePostUserLocationMutation } from "../Services/shopServices";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserLocation } from "../Features/User/userSlice";
-import { colors } from "../Global/Colors";
 import MapPreview from "../Components/MapPreview";
 import { google_maps_api_key } from "../Database/database";
+import colors from "../Global/Colors";
 
 const LocationSelector = ({ navigation }) => {
 
@@ -20,9 +20,6 @@ const LocationSelector = ({ navigation }) => {
     const {localId} = useSelector(state => state.userReducer.value)
     const dispatch = useDispatch()
 
-
-
-    console.log(location);
 
     const onConfirmAddress = () => {
 
@@ -60,7 +57,6 @@ const LocationSelector = ({ navigation }) => {
                 });
                 
             } catch (error) {
-                console.log(error.message);
                 setError(error.message)
             }
         })()
@@ -73,7 +69,6 @@ const LocationSelector = ({ navigation }) => {
                     const url_reverse_geocode = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.latitude},${location.longitude}&key=${google_maps_api_key}`;
                     const response = await fetch(url_reverse_geocode);
                     const data = await response.json();
-                    console.dir(data);
                     setAddress(data.results[0].formatted_address);
                 }
             } catch (error) {
@@ -86,7 +81,8 @@ const LocationSelector = ({ navigation }) => {
         <View style={styles.container}>
             <Text
                 style = {styles.text}
-            >My Address</Text>
+            >Mi Ubicacion</Text>
+            {}
             {location ? (
                 <>
                     <Text 
@@ -97,9 +93,9 @@ const LocationSelector = ({ navigation }) => {
                     <Text style={styles.address}>
                         Formatted address: {address}
                     </Text>
-                    <AddButton
+                    <AddButon
                         onPress={onConfirmAddress}
-                        title="Confirm address"
+                        title="Confirmar Ubicacion"
                     />
                 </>
             ) : (

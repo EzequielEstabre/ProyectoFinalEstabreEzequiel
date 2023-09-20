@@ -59,32 +59,30 @@ const SignupScreen = ({ navigation }) => {
             else setErrorConfirmPassword('')
 
         } catch (err) {
-            console.log("Catch error");
-            console.log(err.message);
         }
     };
 
     return (
         <View style={styles.main}>
             <View style={styles.container}>
-                <Text style={styles.title}>Signup</Text>
-                <InputForm label={"email"} onChange={setEmail} error={errorMail} />
+                <Text style={styles.title}>Registrate</Text>
+                <InputForm label={"Email"} onChange={setEmail} error={errorMail} />
                 <InputForm
-                    label={"password"}
+                    label={"Contraseña"}
                     onChange={setPassword}
                     error={errorPassword}
                     isSecure={true}
                 />
                 <InputForm
-                    label={"confirm password"}
+                    label={"Confirmar Contraseña"}
                     onChange={setconfirmPassword}
                     error={errorConfirmPassword}
                     isSecure={true}
                 />
-                <SubmitButton onPress={onSubmit} title="Send" />
-                <Text style={styles.sub}>Already have an account?</Text>
+                <SubmitButton onPress={onSubmit} title="Registro" />
+                <Text style={styles.sub}>Ya tenes una cuenta?</Text>
                 <Pressable onPress={() => navigation.navigate("Login")}>
-                    <Text style={styles.subLink}>Login</Text>
+                    <Text style={styles.subLink}>Iniciar Sesion</Text>
                 </Pressable>
             </View>
         </View>

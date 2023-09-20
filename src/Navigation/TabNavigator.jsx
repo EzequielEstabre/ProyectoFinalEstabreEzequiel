@@ -10,10 +10,10 @@ import ShopStack from "./ShopStack";
 import CartStack from "./CartStack";
 
 import {
+    AntDesign,
     Ionicons,
-    Fontisto,
-    Foundation,
-    FontAwesome5,
+    MaterialIcons,
+    Octicons
 } from "@expo/vector-icons";
 import OrderStack from "./OrderStack";
 import MyProfileStack from "./MyProfileStack";
@@ -37,9 +37,9 @@ return (
                 tabBarIcon: ({ focused }) => {
                     return (
                         <View>
-                            <Fontisto
-                                name="shopping-store"
-                                size={24}
+                            <AntDesign
+                                name="home"
+                                size={27}
                                 color={
                                     focused ? "black" : "gray"
                                 }
@@ -56,9 +56,9 @@ return (
                 tabBarIcon: ({ focused }) => {
                     return (
                         <View>
-                            <Foundation
+                            <MaterialIcons
                                 name="shopping-cart"
-                                size={30}
+                                size={28}
                                 color={
                                     focused ? "black" : "gray"
                                 }
@@ -75,9 +75,9 @@ return (
                 tabBarIcon: ({ focused }) => {
                     return (
                         <View>
-                            <FontAwesome5
-                                name="list-ul"
-                                size={24}
+                            <Ionicons
+                                name="ios-list-circle-outline"
+                                size={29}
                                 color={
                                     focused ? "black" : "gray"
                                 }
@@ -94,9 +94,9 @@ return (
                 tabBarIcon: ({ focused }) => {
                     return (
                         <View style={styles.item}>
-                            <Ionicons
-                                name="person-circle-outline"
-                                size={24}
+                            <Octicons
+                                name="person"
+                                size={28}
                                 color={
                                     focused ? "black" : "gray"
                                 }
